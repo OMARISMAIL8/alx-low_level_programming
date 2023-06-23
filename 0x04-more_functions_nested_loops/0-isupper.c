@@ -7,7 +7,7 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int isupper()
+int _isupper(int);
 {
 	if(c <= 90 && c >= 65)
 	{
