@@ -1,20 +1,23 @@
-include"main.h"
+#include "main.h"
 /**
  *_strcpy- copies string
  *@dest:checked
  *@src: checked
  *Return: dest
  */
+
+
 char *_strcpy(char *dest, char *src)
 {
-	int a;
+	int i;
 
-	a = 0;
+	i = 0;
 
-	while (src[a])
+	while (src[i])
 	{
-		dest[a] = src[a];
+		dest[i] = src[i];
 		i++;
 	}
+
 	return (dest);
 }
