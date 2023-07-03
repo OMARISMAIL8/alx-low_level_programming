@@ -1,19 +1,21 @@
 #include "main.h"
 
 /**
- * print_chessboard - prints the chessboard
- * @a: two dimension array to print
+ * *_memset - fills memory with a constant byte
+ * @s: memory area to be filled
+ * @b: char to copy
+ * @n: number of times to copy b
+ *
+ * Return: pointer to the memory area s
  */
-void print_chessboard(char (*a)[8])
+char *_memset(char *s, char b, unsigned int n)
 {
-	int i, j;
+	unsigned int omar;
 
-	for (i = 0; i < 8; i++)
+	for (omar = 0; omar < n; omar++)
 	{
-		for (j = 0; j < 8; j++)
-		{
-			_putchar(a[i][j]);
-		}
-		_putchar('\n');
+		s[omar] = b;
 	}
+
+	return (s);
 }
