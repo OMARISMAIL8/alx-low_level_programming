@@ -10,18 +10,19 @@
 
 int main(int argc, char *argv[])
 {
-	int omar;
+	int i, j = 1;
 
-	if (argc == 3)
+	if (argc != 3)
 	{
-		omar = atoi(argv[1]) * atoi(argv[2]);
-		printf("%d\n", omar);
+		printf("Error\n");
 	}
 	else
 	{
-		printf("Error\n");
-		return (1);
+		for (i = 1; i < argc; i++)
+		{
+			j = atoi(argv[i]) * atoi(argv[i]);
+		}
+		printf("%d\n", j);
 	}
-
 	return (0);
 }
