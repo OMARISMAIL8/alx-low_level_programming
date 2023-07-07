@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j = 1;
+	int i, j = 0;
 
 	if (argc != 3)
 	{
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		for (i = 1; i < argc; i++)
+		for (i = 0; i < argc; i++)
 		{
 			j = atoi(argv[i]) * atoi(argv[i]);
 		}
