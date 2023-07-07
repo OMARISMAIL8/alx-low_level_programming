@@ -1,28 +1,27 @@
 #include <stdio.h>
-#include <stdlib>
-
+#include <stdlib.h>
 /**
  * main - Main Entry
  * @argc: input
  * @argv: input
  * Return: Always 0 Success
  */
-
 int main(int argc, char *argv[])
 {
-	int i, j = 1;
+	int i, res = 1;
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		printf("%s\n", "Error");
+		return (1);
 	}
 	else
 	{
 		for (i = 1; i < argc; i++)
 		{
-			j *= atoi(argv[i]);
+			res *= atoi(argv[i]);
 		}
-		printf("%d\n", j);
+		printf("%d\n", res);
 	}
 	return (0);
 }
