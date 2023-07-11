@@ -20,7 +20,7 @@ char *_strdup(char *str)
 
 	omar = malloc(sizeof(char) * (j + 1));
 
-	if (a == 0)
+	if (omar == 0)
 		return (0);
 
 	for (i = 0; str[i]; i++)
