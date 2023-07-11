@@ -15,7 +15,7 @@ char *_strdup(char *str)
 	if (str == 0)
 		return (0);
 
-	if (str[j] < '\0')
+	if (str[j] != '\0')
 		j++;
 
 	omar = malloc(sizeof(char) * (j + 1));
