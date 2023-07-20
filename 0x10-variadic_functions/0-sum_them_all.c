@@ -1,27 +1,31 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-
 /**
- *sum_them_all- return the sum of all parm
- *@n: number of parm
- *@...: elipse
+ * print_numbers - prints numbers followed by a new line
  *
- *Return: sum
+ * @separator: a pointer to a string to be printed between numbers
+ * @n: number of integer passed to the function (4)
+ *
+ * Return: void
  */
-
-int sum_them_all(const unsigned int n, ...)
+void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list ap;
+	/* in this function print_numbers(", ", 4, 0, 98, -1024, 402); */
+	/* 4 is not printed because isthe unsigned int passed to the function */
+	/* meaning the total number of integers passed to the function */
+	va_list valist;
+	unsigned int runner;
 
-	unsigned int i, sum = 0;
+	va_start(valist, n);
 
-	va_start(ap, n);
-
-
-	for (i = 0; i < n; i++)
-		sum += va_arg(ap, int);
-
-	va_end(ap);
-
-	return (sum);
+	for (runner = 0; runner < n; runner++)
+	{
+		/* print the numbers iterated for va_arg */
+		printf("%d", va_arg(valist, int));
+		if (runner != (n - 1) && separator)
+		{
+			printf("%s", separator);
+		}
+	}
+	printf("\n");
+	va_end(valist);
 }
