@@ -15,7 +15,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	omar = n ^ m;
 	ismail = 0;
 
-	while (diff)
+	while (omar)
 	{
 		ismail++;
 		omar &= (omar - 1);
