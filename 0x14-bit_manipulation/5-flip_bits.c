@@ -9,16 +9,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int omar
+	unsigned long int diff;
 	int counter;
 
-	omar = n ^ m;
+	diff = n ^ m;
 	counter = 0;
 
-	while (omar)
+	while (diff)
 	{
 		counter++;
-		omar &= (omar - 1);
+		diff &= (diff - 1);
 	}
 
 	return (counter);
