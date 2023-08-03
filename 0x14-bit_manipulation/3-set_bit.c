@@ -15,7 +15,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	for (omar = 1; index > 0; index--, omar *= 2)
 		;
-	*n += p;
+	*n += omar;
 
 	return (1);
 }
