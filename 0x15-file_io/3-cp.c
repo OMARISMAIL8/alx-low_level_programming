@@ -6,8 +6,8 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- * create_buffer - Allocates 1024 bytes
- * @file: The name of the file buffer
+ * create_buffer - Allocates 1024 bytes for a buffer
+ * @file: The name of the file buffer is storing chars for
  *
  * Return: A pointer to the newly-allocated buffer
  */
@@ -28,16 +28,16 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closes file
+ * close_file - Closes file descriptors
  * @fd: The file descriptor
  */
 void close_file(int fd)
 {
-	int omar;
+	int c;
 
-	omar = close(fd);
+	c = close(fd);
 
-	if (omar == -1)
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
@@ -46,10 +46,10 @@ void close_file(int fd)
 
 /**
  * main - Copies the contents of a file to another file
- * @argc: The number of arguments supplied to the program
+ * @argc: The number of arguments supplied
  * @argv: An array of pointers
  *
- * Return: 0 on success.
+ * Return: 0 on success
  *
  * Description: If the argument count is incorrect - exit code 97.
  *              If file_from does not exist or cannot be read - exit code 98.
@@ -58,7 +58,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, o, s;
+	int from, to, r, w;
 	char *buffer;
 
 	if (argc != 3)
@@ -69,11 +69,11 @@ int main(int argc, char *argv[])
 
 	buffer = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	o = read(from, buffer, 1024);
+	r = read(from, buffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || o == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -81,8 +81,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		s = write(to, buffer, o);
-		if (to == -1 || s == -1)
+		w = write(to, buffer, r);
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		o = read(from, buffer, 1024);
+		r = read(from, buffer, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
