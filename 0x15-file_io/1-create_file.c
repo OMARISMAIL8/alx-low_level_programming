@@ -22,7 +22,7 @@ int create_file(const char *filename, char *text_content)
         }
 
         omar = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-        ismail = write(omar, text_content, len);
+        ismail = write(omar, text_content, o);
 
         if (omar == -1 || ismail == -1)
                 return (-1);
