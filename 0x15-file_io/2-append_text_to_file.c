@@ -23,7 +23,7 @@ int append_text_to_file(const char *filename, char *text_content)
         }
 
         omar = open(filename, O_WRONLY | O_APPEND);
-        ismail = write(omar, text_content, len);
+        ismail = write(omar, text_content, o);
 
         if (omar == -1 || w == -1)
                 return (-1);
